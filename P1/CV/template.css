@@ -17,6 +17,12 @@ body {
     display: block;
     font-size: 15px;
     cursor: pointer;
+    transition-duration: 0.4s;
+  }
+
+  .button:hover {
+    background-color: rgb(210, 58, 109);
+    color: floralwhite;
   }
 
   #profile_photo {
