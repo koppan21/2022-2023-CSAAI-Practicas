@@ -1,11 +1,19 @@
 body {
-    background-image: url("wallpaper.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
+    background-color: rgb(162, 30, 74);
     
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: floralwhite;
+  }
+
+  h2 {
+    text-align: center;
+    text-shadow: 1px 1px 3px rgb(206, 55, 123);
+  }
+
+  h3 {
+    text-align: left;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgb(206, 55, 123);
   }
 
   a {
