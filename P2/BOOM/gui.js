@@ -18,9 +18,11 @@ let status = STATUS.INIT;
 function digit(ev) {
     if (status == STATUS.INIT) {
         status = STATUS.OP;
+        getSecretCode();
+        crono.start();
         digit(ev);
     } else {
-        pass;
+        crono.stop();
     }
 }
 
@@ -62,6 +64,7 @@ const crono = new Crono(gui.display);
 gui.start.onclick = () => {
     console.log("Start!!");
     crono.start();
+    status = STATUS.OP;
 }
   
 //-- Detener el cronómetro
