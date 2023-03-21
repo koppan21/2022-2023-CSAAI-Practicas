@@ -14,6 +14,7 @@ body {
     align-items: center;
     margin: 0;
     color: rgba(252, 169, 169, 1);
+    padding: 25px;
 }
 
 .game-container {
@@ -72,7 +73,7 @@ button:active {
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 500px;
-    background-color: rosybrown;
+    background-color: rgba(188, 143, 143, 0.733);
     color: #fff;
     text-align: left;
     padding: 5px 0;
@@ -90,12 +91,11 @@ button:active {
 
 @media screen and (max-width: 600px) {
     .game-container {
-      width: 90%;
+        width: 90%;
     }
 
-    .tooltiptext {
-        width: 300px;
-        margin-left: none;
-        left: none;
+    .tooltip .tooltiptext {
+        width: 250px;
+        margin-left: -125px;
     }
 }
