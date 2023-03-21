@@ -91,11 +91,11 @@ button:active {
 
 @media screen and (max-width: 600px) {
     .game-container {
-        width: 90%;
+        width: 95%;
     }
 
     .tooltip .tooltiptext {
-        width: 250px;
-        margin-left: -125px;
+        width: 200px;
+        margin-left: -100px;
     }
 }
