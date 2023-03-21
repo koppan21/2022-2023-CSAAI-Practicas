@@ -1,6 +1,4 @@
 //-- Código secreto
-const digits = document.getElementsByClassName("digito");
-
 const sc0 = document.getElementById("sc-0");
 const sc1 = document.getElementById("sc-1");
 const sc2 = document.getElementById("sc-2");
@@ -44,6 +42,8 @@ function digit(ev) {
         digit(ev);
     }
 }
+
+const digits = document.getElementsByClassName("digito");
 
 for (let b of digits) {
     b.onclick = digit;
