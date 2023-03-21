@@ -26,6 +26,7 @@ let status = STATUS.INIT;
 function digit(ev) {
     if (status == STATUS.INIT) {
         getSecretCode();
+
         status = STATUS.OP;
         digit(ev);
     }
