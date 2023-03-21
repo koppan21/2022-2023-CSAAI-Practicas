@@ -11,24 +11,8 @@ const STATUS = {
     INIT: 0,
     OP: 1,
 }
+
 var secretCode = [];
-
-let status = STATUS.INIT;
-
-function digit(ev) {
-    if (status == STATUS.INIT) {
-        status = STATUS.OP;
-        getSecretCode();
-        crono.start();
-        digit(ev);
-    } else {
-        crono.stop();
-    }
-}
-
-for (let b of digits) {
-    b.onclick = digit;
-}
 
 function getSecretCode() {
     for (i=0; i<4; i++) {
@@ -37,12 +21,44 @@ function getSecretCode() {
     }
 }
 
+let status = STATUS.INIT;
+
+function digit(ev) {
+    if (status == STATUS.INIT) {
+        getSecretCode();
+        status = STATUS.OP;
+        digit(ev);
+    }
+    else if (hits == secretCode.length) {
+        crono.stop();
+        console.log('User wins');
+        alert('¡Has ganado!');
+        
+        hits = 0;
+        secretCode = [];
+    }
+    else {
+        crono.start();
+        game(ev);
+        digit(ev);
+    }
+}
+
+for (let b of digits) {
+    b.onclick = digit;
+}
+
+var hits = 0;
+
 function game(ev) {
     console.log(secretCode);
     for (i=0; i<secretCode.length; i++) {
         if (secretCode[i] == ev.target.value) {
             displaySecretCode[i].innerHTML = ev.target.value;
             displaySecretCode[i].style.color = "red";
+            hits += 1;
+            secretCode[i] = 11;
+            console.log('Hits: ', hits);
         }
     }
 }
@@ -57,6 +73,7 @@ const gui = {
 
 //-- Definir un objeto cronómetro
 const crono = new Crono(gui.display);
+let time = toString(crono);
 
 //---- Configurar las funciones de retrollamada
 
@@ -64,7 +81,7 @@ const crono = new Crono(gui.display);
 gui.start.onclick = () => {
     console.log("Start!!");
     crono.start();
-    status = STATUS.OP;
+    status = STATUS.INIT;
 }
   
 //-- Detener el cronómetro
@@ -76,5 +93,12 @@ gui.stop.onclick = () => {
 //-- Reset del cronómetro
 gui.reset.onclick = () => {
     console.log("Reset!");
+    crono.stop();
     crono.reset();
+
+    sc0.innerHTML = '*';
+    sc1.innerHTML = '*';
+    sc2.innerHTML = '*';
+    sc3.innerHTML = '*';
+    status = STATUS.INIT;
 }
