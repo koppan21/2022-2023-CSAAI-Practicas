@@ -63,8 +63,38 @@ button:active {
     grid-template-rows: repeat(1, 50px);
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted rosybrown;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 500px;
+    background-color: rosybrown;
+    color: #fff;
+    text-align: left;
+    padding: 5px 0;
+    border-radius: 15px;
+    position: absolute;
+    z-index: 1;
+    margin-left: -250px;
+    bottom: 100%;
+    left: 50%;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
 @media screen and (max-width: 600px) {
     .game-container {
-      width: 95%;
+      width: 90%;
+    }
+
+    .tooltiptext {
+        width: 95%;
+        margin-left: 47.5%;
     }
 }
