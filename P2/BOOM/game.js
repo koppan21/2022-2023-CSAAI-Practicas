@@ -73,7 +73,6 @@ const gui = {
 
 //-- Definir un objeto cronómetro
 const crono = new Crono(gui.display);
-let time = toString(crono);
 
 //---- Configurar las funciones de retrollamada
 
@@ -96,9 +95,10 @@ gui.reset.onclick = () => {
     crono.stop();
     crono.reset();
 
-    sc0.innerHTML = '*';
-    sc1.innerHTML = '*';
-    sc2.innerHTML = '*';
-    sc3.innerHTML = '*';
+    for (i=0; i<4; i++) {
+        displaySecretCode[i].innerHTML = '*';
+        displaySecretCode[i].style.color = "white";
+    }
+
     status = STATUS.INIT;
 }
