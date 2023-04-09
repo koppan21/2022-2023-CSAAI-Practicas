@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP</title>
+
+    <!-- Hoja de estilo -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Código javascript -->
+    <script src="crono.js" defer></script>
+    <script src="game.js" defer></script>
+</head>
+<body>
+    <img src="zoro.png" alt="Roronoa Zoro" id="zoro">
+    <img src="espada.png" alt="Espada" id="sword">
+    <img src="barrel.png" alt="Barril" id="barrel">
+
+    <h1>¡Consigue el sake!</h1>
+    <canvas id="canvas"></canvas>
+    <div class="data-container">
+        <div class="data">
+            <p>Tiempo:</p>
+            <p id="display">0:0:0</p>
+            <p>Ángulo<input type="range" id="angle"><span id="angle_display">0</span></p>
+            <p>Velocidad<input type="range" id="speed"><span id="speed_display">0</span></p>
+            <button type="button" id="start">DISPARAR</button>
+            <button type="button" id="reset">INICIAR</button>
+            <button id="refresh">NUEVO JUEGO</button>
+            <p></p>
+        </div>
+        <div class="instructions">
+            <h2>Instrucciones</h2>
+            <p>Ayuda a Zoro a conseguir el sake del barril.
+                Asigna los valores de velocidad y ángulo para 
+                apuntar la espada correctamente.
+            </p>
+            <p>
+                Presiona DISPARAR para lanzar la espada.
+                Presiona INICIAR para empezar de nuevo.
+                Presiona NUEVO JUEGO para empezar otra partida.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
