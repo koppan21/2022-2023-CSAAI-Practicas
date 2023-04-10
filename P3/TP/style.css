@@ -2,6 +2,20 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: linear-gradient(
+        0deg,
+        rgba(247, 247, 247, 1) 23.8%,
+        #2187053b 92%
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    text-align: center;
+    color: #22371c;
+}
+
 canvas {
     background-image: url(sabaody.jpg);
     background-position: center;
@@ -13,14 +27,6 @@ canvas {
     margin: auto;
     width: 800px;
     height: 400px;
-}
-
-body {
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-    text-align: center;
-    color: #22371c;
 }
 
 #display {
@@ -43,7 +49,7 @@ body {
     font-size: 1.2rem;
     color: #22371c;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 40% 60%;
 }
 
 .data {

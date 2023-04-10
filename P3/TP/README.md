@@ -9,6 +9,7 @@ FUNCIONAMIENTO:
 - El juego está adaptado a varios dispositivos.
 
 MEJORAS:
-- Se han incluido varias imágenes para hacer el juego visualmente atractivo: katana (objeto), barril (objetivo), paisaje (fondo), Zoro (personaje que lanza el objeto).
+- Se han incluido varias imágenes para hacer el juego visualmente atractivo: katana (objeto), barril (objetivo), paisaje (campo de juego), Zoro (personaje que lanza el objeto).
 - Se ha añadido un apartado de instrucciones para que el usuario entienda qué debe hacer.
 - Hay un sonido al ganar y otro al perder.
+- Se puede presionar la tecla D para disparar (la barra espaciadora no era funcional "por ahora" ya que realiza el desplazamiento vertical).

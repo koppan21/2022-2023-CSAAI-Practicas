@@ -55,6 +55,13 @@ function music(sound) {
     sound.play();
 }
 
+//-- SPACE BAR
+window.onkeydown = (e) => {
+    if (e.key == "d" || e.key == "D") {
+        gui.start.onclick();
+    }
+}
+
 //-- DRAW
 function draw(img, x, y, size) {
     ctx.beginPath();
