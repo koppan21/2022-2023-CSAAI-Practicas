@@ -32,12 +32,6 @@ speedValue.oninput = () => {
     speedValue_display.innerHTML = speedValue.value;
 }
 
-//-- REFRESH BUTTON
-let refresh = document.getElementById('refresh');
-refresh.addEventListener('click', _ => {
-            location.reload();
-})
-
 // MATH FUNCTIONS
 function getRandom(min, max) {
     return Math.random() * (max - min) + min;
@@ -69,7 +63,7 @@ function movement(s, t) {
 }
 
 //-- GAME
-const x0 = getRandom(200, 700);
+let x0 = getRandom(200, 700);
 const y0 = 140;
 var x = 20;
 var y = 140;
@@ -132,6 +126,7 @@ gui.reset.onclick = () => {
     crono.reset();
     x = 20;
     y = 140;
+    x0 = getRandom(200, 700);
     speed = 0;
     time = 0;
     state = STATUS.INIT;

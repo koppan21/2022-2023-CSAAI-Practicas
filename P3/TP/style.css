@@ -11,6 +11,8 @@ canvas {
     border-radius: 5px;
     display: block;
     margin: auto;
+    width: 800px;
+    height: 400px;
 }
 
 img {
@@ -70,5 +72,9 @@ button:active {
     .data-container {
         width: 95%;
         grid-template-columns: 100%;
+    }
+    canvas {
+        width: 100%;
+        height: auto;
     }
 }
