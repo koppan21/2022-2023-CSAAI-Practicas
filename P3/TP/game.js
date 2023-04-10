@@ -83,12 +83,12 @@ function game() {
         state = STATUS.INIT;
 
         console.log("USER WON");
-        alert("¡Has ganado! Prueba a empezar otro juego.");
+        alert("¡Has ganado! Prueba a empezar otro juego :).");
     } else if (y <= 100) {
         crono.stop();
         
         console.log("GAME OVER");
-        alert("¡Has perdido! Prueba a reintentarlo o empezar otro juego.");
+        alert("¡Has perdido! Prueba a empezar otro juego :c.");
     } else {
         if (state == STATUS.OP) {
             speed = speedValue.value * 0.123;
