@@ -4,10 +4,12 @@ const ctx = canvas.getContext("2d");
 canvas.width = 800;
 canvas.height = 400;
 
-//-- GRAPHIC ELEMENTS
+//-- GRAPHIC & MUSIC ELEMENTS
 const zoro = document.getElementById("zoro");
 const sword = document.getElementById("sword");
 const barrel = document.getElementById("barrel");
+const sound_win = new Audio("win.mp3");
+const sound_gameover = new Audio("game_over.mp3");
 
 //-- ELEMENTS
 const STATUS = {
@@ -42,6 +44,12 @@ function range(start, stop=undefined, step=1) {
     const stopArray = stop === undefined ? start : stop;
 
     return Array.from({length: (stopArray - startArray) / step + 1}, (_, i) => startArray + (i * step));
+}
+
+//-- PLAY SOUND
+function music(sound) {
+    sound.currentTime = 0;
+    sound.play();
 }
 
 //-- DRAW
@@ -81,12 +89,25 @@ function game() {
     if (range(Math.round(x0) - 30, Math.round(x0) + 30).includes(Math.round(x)) && range(Math.round(y0) - 50, Math.round(y0) + 50).includes(Math.round(y))) {
         crono.stop();
         state = STATUS.INIT;
+        x = 20;
+        y = 140;
+        speed = 0;
+        time = 0;
+        requestAnimationFrame(game);
 
+        music(sound_win);
         console.log("USER WON");
         alert("¡Has ganado! Prueba a empezar otro juego :).");
     } else if (y <= 100) {
         crono.stop();
+        state = STATUS.INIT;
+        x = 20;
+        y = 140;
+        speed = 0;
+        time = 0;
+        requestAnimationFrame(game);
         
+        music(sound_gameover);
         console.log("GAME OVER");
         alert("¡Has perdido! Prueba a empezar otro juego :c.");
     } else {
@@ -96,7 +117,6 @@ function game() {
             time += 0.04;
         } else {
             crono.stop();
-            state = STATUS.INIT;
         }
         
         movement(speed, time);
@@ -117,6 +137,10 @@ const reset = document.getElementById("reset");
 gui.start.onclick = () => {
     console.log("START");
     crono.start();
+    x = 20;
+    y = 140;
+    speed = 0;
+    time = 0;
     state = STATUS.OP;
 }
 

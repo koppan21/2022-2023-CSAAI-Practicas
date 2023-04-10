@@ -11,3 +11,4 @@ FUNCIONAMIENTO:
 MEJORAS:
 - Se han incluido varias imágenes para hacer el juego visualmente atractivo: katana (objeto), barril (objetivo), paisaje (fondo), Zoro (personaje que lanza el objeto).
 - Se ha añadido un apartado de instrucciones para que el usuario entienda qué debe hacer.
+- Hay un sonido al ganar y otro al perder.
