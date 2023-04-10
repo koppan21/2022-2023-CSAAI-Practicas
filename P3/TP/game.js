@@ -5,9 +5,12 @@ canvas.width = 800;
 canvas.height = 400;
 
 //-- GRAPHIC & MUSIC ELEMENTS
-const zoro = document.getElementById("zoro");
-const sword = document.getElementById("sword");
-const barrel = document.getElementById("barrel");
+const zoro = new Image();
+zoro.src = "zoro.png";
+const sword = new Image();
+sword.src = "espada.png";
+const barrel = new Image();
+barrel.src = "barrel.png";
 const sound_win = new Audio("win.mp3");
 const sound_gameover = new Audio("game_over.mp3");
 
