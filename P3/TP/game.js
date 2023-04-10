@@ -99,15 +99,11 @@ function game() {
     if (range(Math.round(x0) - 30, Math.round(x0) + 30).includes(Math.round(x)) && range(Math.round(y0) - 50, Math.round(y0) + 50).includes(Math.round(y))) {
         crono.stop();
         state = STATUS.INIT;
-        x = 20;
-        y = 140;
-        speed = 0;
-        time = 0;
-        requestAnimationFrame(game);
 
         music(sound_win);
         console.log("USER WON");
-        alert("¡Has ganado! Prueba a empezar otro juego :).");
+        alert("¡Has ganado!");
+        gui.reset.onclick();
     } else if (y <= 100) {
         crono.stop();
         state = STATUS.INIT;
@@ -119,7 +115,7 @@ function game() {
         
         music(sound_gameover);
         console.log("GAME OVER");
-        alert("¡Has perdido! Prueba a empezar otro juego :c.");
+        alert("¡Has perdido! Inténtalo de nuevo o prueba a empezar otro juego :c.");
     } else {
         if (state == STATUS.OP) {
             speed = speedValue.value * 0.123;

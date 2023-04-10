@@ -6,6 +6,7 @@
 FUNCIONAMIENTO:
 - El objetivo cambiará aleatoriamente su posición cada vez que inicie el juego.
 - El usuario debe ajustar los valores de velocidad y ángulo para poder acertar.
+- Al ganar se reinicia el juego automáticamente.
 - El juego está adaptado a varios dispositivos.
 
 MEJORAS:
