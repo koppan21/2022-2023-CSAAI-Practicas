@@ -147,8 +147,19 @@ const flipBackCards = () => {
     state.flippedCards = 0;
 }
 
+// Botones
+selectors.start.onclick = () => {
+    console.log("START");
+    startGame();
+}
+
+selectors.restart.onclick = () => {
+    console.log("RESTART");
+    location.reload();
+}
+
 // Generamos el juego
-generateGame()
+generateGame();
 
 // Asignamos las funciones de callback para determinados eventos
-attachEventListeners()
+attachEventListeners();
