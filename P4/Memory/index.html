@@ -10,23 +10,23 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- Código javascript -->
-    <script src="crono.js" defer></script>
     <script src="game.js" defer></script>
 </head>
 <body>
     <div class="game">
         <div class="controls">
-            <button>Comenzar</button>
+            <button id="start">Comenzar</button>
+            <button id="restart">Reiniciar</button>
             <div class="display">
                 <div class="movements">Movimientos: 0</div>
                 <div class="timer">Tiempo: 0 seg</div>
             </div>
         </div>
         <div class="grid-container">
-            <div class="board" grid-dimensions="4">
+            <div class="board" grid-dimension="2">
                 <div class="card">
                     <div class="card-front"></div>
-                    <div class="card-back">🍍</div>
+                    <div class="card-back"></div>
                 </div>
             </div>
             <div class="win">¡Has ganado!</div>
