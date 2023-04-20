@@ -16,6 +16,21 @@ const state = {
     loop: null
 }
 
+const pokemons = new Array();
+for (let index = 0; index < 11; index++) {
+    pokemons[index] = new Image();
+}
+pokemons[0].src = '001.png';
+pokemons[1].src = '004.png';
+pokemons[2].src = '007.png';
+pokemons[3].src = '025.png';
+pokemons[4].src = '039.png';
+pokemons[5].src = '050.png';
+pokemons[6].src = '054.png';
+pokemons[7].src = '105.png';
+pokemons[8].src = '129.png';
+pokemons[9].src = '143.png';
+
 const generateGame = () => {
     var dimensions = selectors.board.getAttribute('grid-dimension');
 

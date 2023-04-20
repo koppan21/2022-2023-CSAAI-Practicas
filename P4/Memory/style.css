@@ -9,49 +9,77 @@ html {
     font-family: Montserrat;
 }
 
-.game {
+body {
+    background-image: linear-gradient(
+        0deg,
+        rgb(247, 247, 247) 23.8%,
+        #0118698c 92%
+    );
+    /* flex-direction: column;
+    align-items: center; */
+    margin: 10px;
+    text-align: center;
+    color: #011769fb;
+    font-size: 14pt;
+}
+
+.game-container {
     position: absolute;
+    display: flex;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .controls {
-    display: flex;
     gap: 20px;
-    margin-bottom: 20px;
+    margin: 10px;
 }
 
 button {
-    background: #282A3A;
+    background: #011769fb;
     color: #FFF;
+    height: 70px;
+    width: 200px;
     border-radius: 5px;
     padding: 10px 20px;
     border: 0;
+    margin: 0;
+    margin-bottom: 5px;
     cursor: pointer;
     font-family: Montserrat;
-    font-size: 18pt;
+    font-size: 15pt;
+    box-shadow: 5px 5px 5px 0 #033d5244;
+}
+
+button:active {
+    background-color: #01186947;
 }
 
 .disabled {
-    color: #757575;
+    background-color: #01186947;
+    color: #afb1bbfb;
+    cursor: not-allowed;
 }
 
 .display {
-    color: #282A3A;
-    font-size: 14pt;
+    background: whitesmoke;
+    border-radius: 5px;
+    padding: 20px 20px;
+    border: 0;
+    box-shadow: 5px 5px 5px 0 #033d5244;
 }
 
 .grid-container {
     position: relative;
     width: 100%;
+    display: flex;
 }
 
-.board,
-.win {
+.board, .win {
+    background: whitesmoke;
     border-radius: 5px;
-    box-shadow: 0 25px 50px rgb(33 33 33 / 25%);
-    /* background: linear-gradient(135deg,  #6f00fc 0%,#fc7900 50%,#fcc700 100%); */
+    box-shadow: 5px 5px 5px 0 #033d5244;
     transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
     backface-visibility: hidden;
 }
@@ -74,26 +102,26 @@ button {
 .card {
     position: relative;
     width: 100px;
-    height: 100px;
+    height: 130px;
     cursor: pointer;
 }
 
-.card-front,
-.card-back {
+.card-front, .card-back {
     position: absolute;
     border-radius: 5px;
     width: 100%;
     height: 100%;
-    background: #282A3A;
+    background-image: url(carta.png);
+    background-size: 100px;
     transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
     backface-visibility: hidden;
 }
 
 .card-back {
-    font-size: 28pt;
+    font-size: 30pt;
     text-align: center;
-    line-height: 100px;
-    background: #FDF8E6;
+    line-height: 130px;
+    background: #7698a590;
     transform: rotateY(180deg) rotateZ(50deg);
     user-select: none;
 }
@@ -113,7 +141,7 @@ button {
     width: 100%;
     height: 100%;
     text-align: center;
-    background: #FDF8E6;
+    background: whitesmoke;
     transform: rotateY(180deg) rotateZ(50deg);
 }
 
@@ -123,9 +151,8 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 21pt;
-    color: #282A3A;
 }
 
 .highlight {
-    color: #6f00fc;
+    color: #fc00ce;
 }
