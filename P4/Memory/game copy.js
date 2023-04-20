@@ -16,8 +16,21 @@ const state = {
     loop: null
 }
 
-const generateGame = (dimensions) => {
-    // var dimensions = selectors.board.getAttribute('grid-dimension');
+const pokemons = [
+    { name: '1', image: '001.png'},
+    { name: '2', image: '004.png'},
+    { name: '3', image: '007.png'},
+    { name: '4', image: '025.png'},
+    { name: '5', image: '039.png'},
+    { name: '6', image: '050.png'},
+    { name: '7', image: '054.png'},
+    { name: '8', image: '105.png'},
+    { name: '9', image: '129.png'},
+    { name: '10', image: '143.png'},
+];
+
+const generateGame = () => {
+    var dimensions = selectors.board.getAttribute('grid-dimension');
 
     if (dimensions % 2 !== 0) {
         throw new Error("Las dimensiones del tablero deben ser un número par.");
@@ -25,7 +38,7 @@ const generateGame = (dimensions) => {
 
     const emojis = ['🥔', '🍒', '🥑', '🌽', '🥕', '🍇', '🍉', '🍌', '🥭', '🍍'];
     
-    const picks = pickRandom(emojis, (dimensions * dimensions) / 2);
+    const picks = pickRandom(pokemons, (dimensions * dimensions) / 2);
 
     const items = shuffle([...picks, ...picks]);
     
@@ -34,7 +47,7 @@ const generateGame = (dimensions) => {
             ${items.map(item => `
                 <div class="card">
                     <div class="card-front"></div>
-                    <div class="card-back">${item}</div>
+                    <div class="card-back"><img src="${item[i].image}"/></div>
                 </div>
             `).join('')}
        </div>
@@ -98,6 +111,13 @@ const startGame = () => {
     }, 1000);
 }
 
+const stopGame = () => {
+    state.gameStarted = false;
+    selectors.start.classList.add('enabled');
+    state.loop = null;
+    clearInterval(state.loop);
+}
+
 const flipCard = card => {
     state.flippedCards++;
     state.totalFlips++;
@@ -155,40 +175,23 @@ selectors.start.onclick = () => {
 
 selectors.restart.onclick = () => {
     console.log("RESTART");
-    location.reload();
-    
-    // don't work
-    // state.gameStarted = false;
-    // state.flippedCards = 0;
-    // state.totalFlips = 0;
-    // state.totalTime = 0;
+    state.gameStarted = false;
+    state.flippedCards = 0;
+    state.totalFlips = 0;
+    state.totalTime = 0;
 
-    // flipBackCards();
-    // generateGame(dim);
+    flipBackCards();
+    generateGame(dim);
 
-    // selectors.start.classList.remove('disabled');
-    // selectors.movements.innerText = `Movimientos: ${state.totalFlips}`;
-    // selectors.timer.innerText = `Tiempo: ${state.totalTime} seg`;
+    selectors.start.classList.remove('disabled');
+    selectors.movements.innerText = `Movimientos: ${state.totalFlips}`;
+    selectors.timer.innerText = `Tiempo: ${state.totalTime} seg`;
     
-    // clearInterval(state.loop);
+    clearInterval(state.loop);
 }
 
 // Generamos el juego
-var dimensionNull = document.getElementById('grid-dimension');
-dimensionNull.value = 0;
-dimensionNull.onchange = function() {generateAll()};
-
-const generateAll = () => {
-    var dim = document.getElementById('grid-dimension').value;
-    
-    if (dim % 2 == 0 && dim <= 6) {
-        generateGame(dim);
-    } else {
-        throw new Error("Las dimensiones del tablero deben ser un número par.");
-    }
-}
+generateGame();
 
 // Asignamos las funciones de callback para determinados eventos
 attachEventListeners();
-
-// Lo siento profe, se me olvidó hacerla xd

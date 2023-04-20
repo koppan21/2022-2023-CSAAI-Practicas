@@ -15,20 +15,21 @@
 <body>
     <div class="game-container">
         <div class="controls">
-            <button id="start">Comenzar</button>
-            <button id="restart">Reiniciar</button>
+            <div>
+                <button class="start">Comenzar</button>
+                <button class="restart">Reiniciar</button>
+            </div>
             <div class="display">
-                <div class="movements">Movimientos: 0</div>
+                <p>
+                    Tamaño: 
+                    <input type="text" id="grid-dimension">
+                </p>
+                <div class="moves">Movimientos: 0</div>
                 <div class="timer">Tiempo: 0 seg</div>
             </div>
         </div>
         <div class="grid-container">
-            <div class="board" grid-dimension="2">
-                <div class="card">
-                    <div class="card-front"></div>
-                    <div class="card-back"></div>
-                </div>
-            </div>
+            <div class="board"></div>
             <div class="win"></div>
         </div>
     </div>
