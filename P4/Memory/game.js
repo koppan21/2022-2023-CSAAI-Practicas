@@ -23,7 +23,9 @@ const generateGame = (dimensions) => {
         throw new Error("Las dimensiones del tablero deben ser un número par.");
     }
 
-    const emojis = ['🥔', '🍒', '🥑', '🌽', '🥕', '🍇', '🍉', '🍌', '🥭', '🍍'];
+    // intenté poner los pokemons, lo juro
+
+    const emojis = ['🐕', '🐊', '🐌', '🦉', '🦥', '🦋', '🐞', '🐘', '🐧', '🦑'];
     
     const picks = pickRandom(emojis, (dimensions * dimensions) / 2);
 
