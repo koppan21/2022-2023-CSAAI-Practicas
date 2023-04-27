@@ -26,8 +26,14 @@ img {
     height: 200px;
 }
 
+canvas {
+    width: 200px;
+    height: 200px;
+}
+
 .container {
     background-color: #fff;
+    box-shadow: 5px 5px 5px 0 #053d574d;
     border-radius: 15px;
     position: relative;
     padding: 20px 20px;
@@ -65,4 +71,14 @@ button:hover {
 
 #imagesrchide {
   display: none;
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        width: 95%;
+    }
+
+    .img-container{
+        display: block;
+    }
 }
