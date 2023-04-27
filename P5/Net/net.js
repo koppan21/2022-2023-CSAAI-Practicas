@@ -14,6 +14,8 @@ const imgBack = document.getElementById('imagesrchide');
 const imgCloud = document.getElementById('cloud');
 const imgFront = document.getElementById('imagesrc');
 const ctx = canvas.getContext('2d');
+canvas.width = 200;
+canvas.height = 200;
 
 //-- Gestionar el estado el envío
 const state = {
@@ -36,15 +38,9 @@ gui.nodeValue.innerHTML = state.node;
 //-- Cuando está disponible cargo la imagen con la nube para represntar el destino
 imgCloud.onload = function () {
 
-  //-- Se establece como tamaño del canvas el mismo
-  //-- que el de la imagen original
-  canvas.width = imgCloud.width;
-  canvas.height = imgCloud.height;
-
   //-- Situar la imagen original en el canvas
   //-- No se han hecho manipulaciones todavía
-  ctx.drawImage(imgCloud, 0, 0);
-
+  ctx.drawImage(imgCloud, 50, 50);
 }
 
 //-- función de callback para el envío de la imagen
@@ -70,12 +66,7 @@ gui.node.oninput = () => {
 //-- https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getImageData
 const sendImage = () => {
 
-  console.log("Comienzo a enviar...");
-
-  //-- Se establece como tamaño del canvas el mismo
-  //-- que el de la imagen original
-  canvas.width = imgFront.width;
-  canvas.height = imgFront.height;  
+  console.log("Comienzo a enviar..."); 
  
   //-- Situar la imagen original en el canvas
   //-- No se han hecho manipulaciones todavía
