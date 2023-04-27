@@ -2,8 +2,10 @@ console.log("Montando la red...")
 
 const gui = {
   bsend : document.getElementById("bsend"),
-  netdelay : document.getElementById("netdelay"),
-  netdelayvalue : document.getElementById("netdelay_value"),
+  delay : document.getElementById("delay"),
+  delayValue : document.getElementById("delay_value"),
+  node : document.getElementById("node"),
+  nodeValue : document.getElementById("node_value")
 }
 
 //-- Obtener elementos del DOM
@@ -19,14 +21,17 @@ const state = {
   totalTime: 0,
   totalPackages:0,
   sendingPackage:0,
-  netDelay: 1,
-  netDelayDefault: 1,
+  delay: 1,
+  delayDefault: 1,
+  node: 3,
+  nodeDefault: 3,
   loop: null
 }
 
-//-- Iniciar el valor del deslizador con el valor de la 
-// variable de estado para el delay
-gui.netdelayvalue.innerHTML = state.netDelay;
+//-- Iniciar los valores de los deslizadores con el valor de la 
+// variable de estado para el delay y el nodo
+gui.delayValue.innerHTML = state.delay;
+gui.nodeValue.innerHTML = state.node;
 
 //-- Cuando está disponible cargo la imagen con la nube para represntar el destino
 imgCloud.onload = function () {
@@ -49,9 +54,14 @@ gui.bsend.onclick = () => {
 
 //-- función de callback para actualizar los valores del 
 // deslizador y la variable de estado para el delay
-gui.netdelay.oninput = () => {
-  gui.netdelayvalue.innerHTML = gui.netdelay.value;
-  state.netDelay = gui.netdelay.value;
+gui.delay.oninput = () => {
+  gui.delayValue.innerHTML = gui.delay.value;
+  state.delay = gui.delay.value;
+}
+
+gui.node.oninput = () => {
+  gui.nodeValue.innerHTML = gui.node.value;
+  state.node = gui.node.value;
 }
 
 //-- simulación del envío de la imagen
@@ -101,9 +111,9 @@ const sendImage = () => {
     data = imgData.data
 
     //-- cambiamos el canal a rojo del rectángulo que hemos seleccionado
-    for (let i = 0; i < data.length; i+=4) {
-      data[i] = 0; //-- Canal rojo a 0
-    }
+    // for (let i = 0; i < data.length; i+=4) {
+    //   data[i] = 0; //-- Canal rojo a 0
+    // }
     
     //-- dimensiones del rectángulo 2
     sx2 = sx1;
@@ -111,24 +121,19 @@ const sendImage = () => {
     sw2 = sw1;
     sh2 = state.totalPackages - sh1;
 
-    // if (sh2 > 0) {
-    //   //-- seleccionamos el rectángulo 2
-    //   imgData = ctx.getImageData(sx2, sy2, sw2, sh2);
+    if (sh2 > 0) {
+      //-- seleccionamos el rectángulo 2
+      imgData = ctx.getImageData(sx2, sy2, sw2, sh2);
 
-    //   //-- Obtener el array con todos los píxeles
-    //   data = imgData.data
+      //-- Obtener el array con todos los píxeles
+      data = imgData.data
   
-    //   for (let i = 0; i < data.length; i+=4) {
-    //     // brillo = (3 * r + 4 * g + b)/8
-    //     //let brillo = (3 * data[i] + 4 * data[i+1] + data[i+2])/8
-    //     //data[i] = brillo;
-    //     //data[i+1] = brillo;
-    //     //data[i+2] = brillo; 
-    //     //data[i] = 0;
-    //     //data[i+1] = 0;
-    //     data[i+2] = 0;         
-    //   }  
-    // }
+      for (let i = 0; i < data.length; i+=6) {
+        data[i] = 100;
+        data[i+1] = 100;
+        data[i+2] = 200;
+      }  
+    }
 
     //-- Poner la imagen modificada en el canvas
     ctx.putImageData(imgData, 0, 0);
@@ -142,7 +147,7 @@ const sendImage = () => {
     }
 
     console.log("Enviando...");
-  }, state.netDelay )
+  }, (state.delay/1000)*state.node )
 }
 
 console.log("Red preparada...");
