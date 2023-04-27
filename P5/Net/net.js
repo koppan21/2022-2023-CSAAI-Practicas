@@ -1,4 +1,4 @@
-console.log("Montando la red...")
+console.log("Montando la red...");
 
 const gui = {
   bsend : document.getElementById("bsend"),
