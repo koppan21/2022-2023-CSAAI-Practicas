@@ -138,7 +138,7 @@ const sendImage = () => {
     }
 
     console.log("Enviando...");
-  }, (state.delay/1000)*state.node )
+  }, (state.delay * state.node) )
 }
 
 console.log("Red preparada...");
