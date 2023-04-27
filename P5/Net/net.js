@@ -71,6 +71,7 @@ const sendImage = () => {
  
   //-- Situar la imagen original en el canvas
   //-- No se han hecho manipulaciones todavía
+  ctx.globalAlpha = 0.5;
   ctx.drawImage(imgFront, 0, 0);
 
   //-- Obtener la imagen del canvas en pixeles
@@ -93,7 +94,7 @@ const sendImage = () => {
 
     //-- dimensiones del rectángulo 1
     sx1 = 0;
-    sy1 = 2;
+    sy1 = 0;
     sw1 = canvas.width;
     sh1 = state.sendingPackage;
 
@@ -135,6 +136,7 @@ const sendImage = () => {
 
     // Paramos el loop si hemos terminado de enviar
     if (state.sendingPackage == state.totalPackages) {
+      ctx.globalAlpha = 1;
       ctx.drawImage(imgBack, 0, 0); 
       console.log("Envio terminado...");
       state.sendingImage = false;             
