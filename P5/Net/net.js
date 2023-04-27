@@ -105,10 +105,8 @@ const sendImage = () => {
 
     //-- cambiamos el canal del rectángulo que hemos seleccionado
     for (let i = 0; i < data.length; i+=4) {
-      data[i*2] = 255;
-      data[i*2 + 1] = 81;
-      data[i*2 + 2] = 0;
-      data[i*2 + 3] = 180;
+      data[i+1] = 70;
+      data[i+2] = 0;
     }
     
     //-- dimensiones del rectángulo 2
