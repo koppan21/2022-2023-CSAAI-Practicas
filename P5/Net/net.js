@@ -2,6 +2,7 @@ console.log("Montando la red...")
 
 const gui = {
   bsend : document.getElementById("bsend"),
+  resend : document.getElementById("resend"),
   delay : document.getElementById("delay"),
   delayValue : document.getElementById("delay_value"),
   node : document.getElementById("node"),
@@ -14,8 +15,8 @@ const imgBack = document.getElementById('imagesrchide');
 const imgCloud = document.getElementById('cloud');
 const imgFront = document.getElementById('imagesrc');
 const ctx = canvas.getContext('2d');
-canvas.width = 200;
-canvas.height = 200;
+canvas.width = 250;
+canvas.height = 250;
 
 //-- Gestionar el estado el envío
 const state = {
@@ -40,7 +41,7 @@ imgCloud.onload = function () {
 
   //-- Situar la imagen original en el canvas
   //-- No se han hecho manipulaciones todavía
-  ctx.drawImage(imgCloud, 50, 50);
+  ctx.drawImage(imgCloud, 75, 75);
 }
 
 //-- función de callback para el envío de la imagen
@@ -142,3 +143,8 @@ const sendImage = () => {
 }
 
 console.log("Red preparada...");
+
+gui.resend.onclick = () => {
+  console.log("RESTART");
+  location.reload();
+}

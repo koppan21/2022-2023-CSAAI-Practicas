@@ -16,19 +16,27 @@ body {
     align-items: center;
     margin: 10px;
     text-align: center;
-    color: #053d57;
+    color: #316a84;
     display: flex;
     flex-direction: column;
 }
 
 img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    border-color: #316a84;
+    border-width: medium;
+    border-style: dotted;
 }
 
 canvas {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    border-color: #316a84;
+    border-width: medium;
+    border-style: dotted;
 }
 
 .container {
@@ -39,6 +47,7 @@ canvas {
     padding: 20px 20px;
     margin: 10px 0;
     width: 700px;
+    font-size: 1.2rem;
 }
 
 .img-container {
@@ -57,12 +66,39 @@ button {
     border: none;
     border-radius: 5px;
     padding: 10px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #fff;
 }
 
 button:hover {
     background-color: #76909ebb;
+    cursor: pointer;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 12px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.5;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 0.9;
+}
+  
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #316a84;
+    cursor: pointer;
 }
 
 #cloud {
