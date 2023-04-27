@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Net</title>
+        <title>Simulando la red</title>
     
         <!-- Hoja de estilo -->
         <link rel="stylesheet" href="style.css">
@@ -14,5 +14,24 @@
     </head>
     <body>
         <h1>Simulador</h1>
+        <div class="container">
+            <div class="source">
+                <p>Imagen en origen</p>
+                <img src="duck.jpg" id="imagesrc">
+                <img src="duck.jpg" id="imagesrchide">
+                <img src="cloud.png" id="cloud">
+            </div>
+            <div class="receiver">
+                <p>Imagen en destino</p>
+                <canvas id="canvas"></canvas>
+            </div>
+            <div class="data-container">
+                <input type="range" id="netdelay" min="1" max="1000" value="1"/>
+                <p id="netdelay_value">0</p>
+                <button id="bsend">Enviar</button>
+            </div>
+            <!-- <p>La red</p>
+            <img src="net.svg"> -->
+        </div>
     </body>
 </html>
