@@ -31,6 +31,12 @@ const state = {
   loop: null
 }
 
+// Audio
+const sound_charge = new Audio("clics.mp3");
+sound_charge.currentTime = 0;
+const sound_end = new Audio("cuak-sound-effect.mp3");
+sound_end.currentTime = 0;
+
 //-- Iniciar los valores de los deslizadores con el valor de la 
 // variable de estado para el delay y el nodo
 gui.delayValue.innerHTML = state.delay;
@@ -67,7 +73,7 @@ gui.node.oninput = () => {
 //-- https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getImageData
 const sendImage = () => {
 
-  console.log("Comienzo a enviar..."); 
+  console.log("Comienzo a enviar...");
  
   //-- Situar la imagen original en el canvas
   //-- No se han hecho manipulaciones todavía
@@ -101,7 +107,7 @@ const sendImage = () => {
     imgData = ctx.getImageData(sx1, sy1, sw1, sh1);
 
     //-- Obtener el array con todos los píxeles
-    data = imgData.data
+    data = imgData.data;
 
     //-- cambiamos el canal del rectángulo que hemos seleccionado
     for (let i = 0; i < data.length; i+=4) {
@@ -139,10 +145,15 @@ const sendImage = () => {
       console.log("Envio terminado...");
       state.sendingImage = false;             
       clearInterval(state.loop);
+      sound_charge.pause();
+      sound_end.play();
     }
 
     console.log("Enviando...");
   }, (state.delay * state.node) )
+
+  sound_charge.play();
+  sound_charge.loop = true;
 }
 
 console.log("Red preparada...");
